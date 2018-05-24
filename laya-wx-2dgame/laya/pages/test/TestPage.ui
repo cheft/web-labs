@@ -1,0 +1,37 @@
+{
+    "x":0,
+    "type":"View",
+    "selectedBox":1,
+    "selecteID":53,
+    "props":{"width":667,"sceneColor":"#ffffff","height":375},
+    "nodeParent":-1,
+    "label":"View",
+    "isOpen":true,
+    "isDirectory":true,
+    "isAniNode":true,
+    "hasChild":true,
+    "compId":1,
+    "child":[
+        {
+            "x":15,
+            "type":"Text",
+            "props":{"y":167,"x":100,"text":"LayaAir 微信小程序最小包","fontSize":40,"color":"#ff3200"},
+            "nodeParent":1,
+            "label":"Text",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":53,
+            "child":[
+                ]
+        }],
+    "animations":[
+        {
+            "nodes":[
+                ],
+            "name":"ani1",
+            "id":1,
+            "frameRate":24,
+            "action":0
+        }]
+}
