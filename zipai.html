@@ -103,7 +103,7 @@ function qipai(arr) {
       map.delete(k);
     } else if (v.length) { // 一张或二张牌
       if (k < 11) {
-        // 小牌一对，拿一个大牌
+        // 组一个大牌进去
         var dk = k + 10;
         var dv = map.get(dk);
         if (dv && dv.length === 1) {
@@ -111,7 +111,7 @@ function qipai(arr) {
           map.delete(dk);
         }
       } else {
-        // 大牌一对，拿一个小牌
+        // 组一个小牌进去
         var xk = k - 10;
         var xv = map.get(xk);
         if (xv && xv.length === 1) {
@@ -119,7 +119,7 @@ function qipai(arr) {
           map.delete(xk);
         }
       }
-      // 两张才放入
+      // 两张以上才放入牌组
       if (v.length > 1) {
         arr2.push(v);
         map.delete(k);
@@ -127,16 +127,16 @@ function qipai(arr) {
     }
   }
 
-  // 将单牌放 others 数组中
+  // 将单牌放入 others 数组中
   for (var v of map.values()) {
     if (v.length) {
       others = others.concat(v);
     }
   }
 
-  // 便利单排，找出三连组，两连组和隔牌两连组牌型
+  // 遍历单牌，找出三连组，两连组和隔牌两连组牌型
   others.forEach(function(v, i) {
-    // 9 以上或者 19 以上不存在三连组，比如小10不等跟大1连
+    // 9 以上或者 19 以上不存在三连组，因为小牌不能连大牌
     if ((v < 9 || (v > 10 && v < 19)) && others[i + 1] === v + 1 && others[i + 2] === v + 2) {
       arr2.push([v, others[i + 1], others[i + 2]]);
       others.splice(i, 3);
@@ -150,7 +150,7 @@ function qipai(arr) {
     }
   });
 
-  // 余下的散牌，用两个组存起来，当超过5个时切割，理论上不会超过7个
+  // 余下的散牌也放进牌组，当超过5个时切割，用两个组存起来，理论上不会超过7个
   if (others.length) {
     if (others.length > 4) {
       arr2.push(others.slice(0, 3));
@@ -178,6 +178,12 @@ console.log(qipai(tmp[2]));
 function zhuapai() {
 
 }
+
+// 吃牌
+function chipai() {
+
+}
+
 
 // 胡牌
 function hupai() {
